@@ -40,5 +40,16 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { 
-
+  componentes=[
+    {
+      icon: 'home',
+      name: ' Inicio',
+      redirecTo: '/inicio'
+    },
+    {
+      icon:'help-outline',
+      name:'Acerca De',
+      redirecTo:'/acerca-de'
+    }
+  ];
 }

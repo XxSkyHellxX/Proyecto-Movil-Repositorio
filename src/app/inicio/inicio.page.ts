@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppRoutingModule } from '../app-routing.module';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
@@ -6,23 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit{
 
-  constructor() {
+  constructor(private rutas:AppRoutingModule) {
   }
   
   menu:boolean=true;
+  mensaje:boolean=false;
 
-  componentes=[
-    {
-      icon:'person-outline',
-      name:'Perfil',
-      redirecTo:'/'
-    },
-    {
-      icon:'help-outline',
-      name:'Acerca De',
-      redirecTo:'/acerca-de'
-    }
-  ];
+  evento(){
+    this.menu=false;
+    this.mensaje=true;
+  }
+
+  componentes=this.rutas.componentes;
 
   ngOnInit() {
   }

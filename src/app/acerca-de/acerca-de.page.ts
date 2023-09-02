@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AppRoutingModule } from '../app-routing.module';
 @Component({
   selector: 'app-acerca-de',
   templateUrl: './acerca-de.page.html',
@@ -7,20 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcercaDePage implements OnInit {
 
-  constructor() { }
-  componentes=[
-    {
-      icon: 'home',
-      name: ' Inicio',
-      redirecTo: '/inicio'
-    },
-    {
-      icon:'help-outline',
-      name:'Acerca De',
-      redirecTo:'/acerca-de'
-    }
-  ];
+  constructor(private rutas:AppRoutingModule) { }
 
+  componentes=this.rutas.componentes;
   ngOnInit() {
   }
 
