@@ -1,0 +1,68 @@
+@media(min-width:360px){
+  img{
+    margin-top: 230px;
+    opacity: 1;
+    width: 200px;
+    height: 200px;
+
+    animation-name: logo;
+    animation-duration: 4s;
+    
+    @keyframes logo{
+      0%{
+        opacity: 0;
+      }
+
+      100%{
+        opacity: 1;
+      }
+    }
+  }
+
+  h1{
+    animation: card 4s,texto 4s;
+    text-align: center;
+    font-family: 'Italiana', serif;
+    font-size: 66px;
+    color: black;
+    text-shadow: 0px 0px 15px black;
+  }
+
+  label{
+    color: rgb(255, 255, 255);
+    font-family: 'Italiana', serif;
+    font-size:20px;
+  }
+  
+
+  input{
+    font-family: 'Italiana', serif;
+    box-shadow: 0 0 10px white,0 0 40px white, 0 0 80px white ;
+
+  }
+
+  span{
+    color: #FE0100;
+    font-size:18px;
+    font-family: 'Italiana', serif;
+  }
+
+  ion-button{
+    --background:white    
+  }
+
+  ion-button:hover{
+    box-shadow: 0 0 10px white,0 0 40px white, 0 0 80px white ; 
+  }
+  
+  //Animaciones
+  @keyframes card{
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+}

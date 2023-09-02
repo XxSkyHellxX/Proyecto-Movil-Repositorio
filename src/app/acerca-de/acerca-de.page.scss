@@ -1,0 +1,67 @@
+@media(min-width:360px) {
+    ion-title{
+        font-family: 'Italiana', serif;
+        color: black;
+    }
+    
+    ion-button{
+        --background:rgba(0, 0, 0, 0.726);
+    }
+
+    p{
+        color:black;
+        font-family: 'Montserrat', sans-serif;
+        text-shadow: 0px 0px 15px black;
+    }
+    
+    @keyframes logo{
+    35%{
+            opacity: 0.5;
+        }
+        50%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0.5;
+        }
+    }
+    ion-item{
+        --background:white;
+    }
+    ion-list{
+        border:1px solid black;
+    }
+    h1{
+        font-family: 'Italiana', serif;
+        color:black;
+        text-shadow: 0px 0px 15px black;
+
+    }
+
+    @keyframes letra{
+        0%{
+            text-shadow: 0 0 10px #D4AF37, 0 0 40px #D4AF37, 0 0 80px #D4AF37;
+        }
+        50%{
+            text-shadow: 0 0 10px white, 0 0 40px white, 0 0 80px white;
+        }
+        100%{
+            text-shadow: 0 0 10px #D4AF37, 0 0 40px #D4AF37, 0 0 80px #D4AF37;
+        }
+    }
+
+    @keyframes box{
+        0%{
+            box-shadow: 0 0 10px #D4AF37, 0 0 40px #D4AF37, 0 0 80px #D4AF37;
+        }
+        50%{
+            box-shadow: 0 0 10px white, 0 0 40px white, 0 0 80px white;
+        }
+        100%{
+            box-shadow: 0 0 10px #D4AF37, 0 0 40px #D4AF37, 0 0 80px #D4AF37;
+        }
+    }
+    #main-content{
+        --background:transparent;
+    }
+}

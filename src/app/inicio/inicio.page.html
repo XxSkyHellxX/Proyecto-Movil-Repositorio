@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-6  me-3">
+        <img  src="assets/icon/caballo.png" alt="" (click)="menu=false">
+      </div>
+      <div class="container" id="cont" [hidden]="menu">
+        <div class="row justify-content-center">
+          <div class="col-sm-6">
+            <ion-list>
+              <ion-item >
+                 <h2 >TeLlevoApp</h2>
+              </ion-item>
+              <ion-item *ngFor="let menu of componentes">
+                <ion-button class="my-3" shape="round" size="default" routerLink="{{menu.redirecTo}}">
+                  <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> <span>{{menu.name}}</span>
+                </ion-button>
+              </ion-item>
+              <ion-item >
+                <ion-button class="my-3" shape="round" size="default" routerLink="/login">
+                  <ion-icon class="me-3 mb-1" name="arrow-back-outline"></ion-icon> <span>logout</span>
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

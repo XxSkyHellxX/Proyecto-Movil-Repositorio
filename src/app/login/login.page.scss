@@ -1,0 +1,48 @@
+@media(min-width:360px) {
+  #contenedor {
+    margin-top: 35px;
+  }
+
+  label {
+    color: rgb(0, 0, 0);
+    font-family: 'Italiana', serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 7px;
+  }
+
+
+  input {
+    font-family: 'Italiana', serif;
+
+  }
+
+  input:hover {
+    font-family: 'Italiana', serif;
+    box-shadow: 0 0 10px black, 0 0 40px black, 0 0 80px black;
+
+  }
+
+  span:hover {
+    text-shadow: 0 0 10px black, 0 0 40px black, 0 0 80px black;
+    text-decoration: underline;
+  }
+
+  ion-button {
+    --background: white;
+    color: black;
+    font-size: 18px;
+    font-family: 'Italiana', serif;
+  }
+
+  h5 {
+    font-family: 'Italiana', serif;
+    color: black;
+  }
+
+  ion-button:hover {
+    box-shadow: 0 0 10px white, 0 0 40px white, 0 0 80px white;
+    border: 1px solid black;
+  }
+
+}
