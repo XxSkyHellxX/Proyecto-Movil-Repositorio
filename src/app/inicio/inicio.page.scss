@@ -13,23 +13,31 @@
     ion-item{
         --background: transparent;
         color: black;
+        font-weight: bolder;
     }
     ion-title{
         font-family: 'Italiana', serif;
         color: black;
+        font-weight: bolder;
     }
     
     ion-button{
         --background:rgba(255, 255, 255, 0.979);
         color: black;
+        font-family: 'Italiana', serif;
+        text-shadow: 0px 0px 1px black;
+        font-weight: bolder;
     }
     
     #mensaje{
         box-shadow: 0px 0px 10px black;
-
+        font-weight: bolder;
         animation-name: eliminar;
         animation-duration: 4s;
         opacity: 0;
+        font-family: 'Italiana', serif;
+        text-shadow: 0px 0px 1px black;
+
         @keyframes eliminar{
             0%{ 
                 opacity: 0;
@@ -56,6 +64,8 @@
         animation: cont 2.5s;
         padding-top: 25px ;
         padding-bottom: 50px ;
+        text-shadow: 0px 0px 1px white;
+        font-weight: bolder;
     }
 
     @keyframes logo{
@@ -88,6 +98,7 @@
         font-size: 60px;
         color: white;
         text-shadow: 0px 0px 5px white;    
+        
     }
 
 
