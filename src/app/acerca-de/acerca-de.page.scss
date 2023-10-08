@@ -1,50 +1,52 @@
-@media(min-width:360px) {
-    ion-title{
+    ion-title {
         font-family: 'Italiana', serif;
         color: black;
         font-weight: bolder;
     }
-    
-    ion-button{
-        --background:rgba(0, 0, 0, 0.726);
+
+    ion-button {
+        --background: rgba(0, 0, 0, 0.726);
         font-family: 'Italiana', serif;
         text-shadow: 0px 0px 1px white;
         font-weight: bolder;
     }
 
-    p{
-        color:black;
+    p {
+        color: black;
         font-family: 'Italiana', serif;
         font-weight: bolder;
     }
-    
-    @keyframes logo{
-    35%{
+
+    @keyframes logo {
+        35% {
             opacity: 0.5;
         }
-        50%{
+
+        50% {
             opacity: 1;
         }
-        100%{
+
+        100% {
             opacity: 0.5;
         }
     }
-    ion-item{
-        --background:white;
-        
+
+    ion-item {
+        --background: white;
+
     }
-    ion-list{
-        border:1px solid black;
+
+    ion-list {
+        border: 1px solid black;
     }
-    h1{
+
+    h1 {
         font-family: 'Italiana', serif;
-        color:black;
+        color: black;
         text-shadow: 0px 0px 1px black;
         font-weight: bolder;
     }
 
-    #main-content{
-        --background:transparent;
+    #main-content {
+        --background: transparent;
     }
-
-}

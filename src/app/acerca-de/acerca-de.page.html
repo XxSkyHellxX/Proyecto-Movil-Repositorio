@@ -1,15 +1,23 @@
-<ion-content [fullscreen]="true">  
+<ion-content [fullscreen]="true">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" class="">
+      <ion-tab-button tab="home" *ngFor="let item of componentes" routerLink="{{item.redirecTo}}">
+        <ion-icon name="{{item.icon}}" class="mb-1 mt-1"></ion-icon >
+        <div class="h6">{{item.name}}</div>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 
   <ion-menu contentId="main-content" style="position: fixed;">
     <ion-header>
       <ion-toolbar>
-        <ion-title slot="end">  TeLlevoApp</ion-title>
+        <ion-title slot="end"> TeLlevoApp</ion-title>
         <ion-img style="width: 50px;height: 50px;" src="assets/icon/caballo.png" slot="start" class="ms-3"></ion-img>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <ion-list class="rounded">
-        <ion-item *ngFor="let menu of componentes" >
+      <ion-list class="rounded mt-5">
+        <ion-item *ngFor="let menu of componentes">
           <ion-button class="my-3" shape="round" size="default" routerLink="{{menu.redirecTo}}">
             <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> {{menu.name}}
           </ion-button>
@@ -34,29 +42,21 @@
     </ion-header>
   </div>
 
-  <div class="container "> 
-    <div class="row justify-content-center">
-      <div class="col-sm-6">
-        <ion-text class="bg">       
-          <h1 class="text-center">Acerca de Nosotros</h1>
-          <p class="h5  rounded text-center">            
-            Hola usuario,nos presentamos 
-            somos Franco García,Daniel Sanchez y Diego Guerrero.<br>
-            Y al igual que tu somos estudiantes de DuocUC pertenecientes a la carrera Analista Programador 
-            Computacional. <br><br>
-            Nuestro objetivo con nuestra app se resume en una frase <br>
-            "<span>Llevarte Sano a Casa</span>" <br><br>
-            Sabemos que la vuelta a clases presenciales no ha sido facil en una epoca donde debido al COVID-19
-            las instituciones educacionales han debido implementar las clases Online. <br><br>
-            Nuestro propuesta consiste en que alumnos voluntarios que cuenten con movilidad propia ayudaran a retornar a sus
-            hogares a todos aquellos que no posean esa facilidad.            
-          </p>                            
-          <div class="col-sm-3 mt-4 mb-2">
-            <ion-img src="https://media-front.elmostrador.cl/2017/09/V9-4-1-700x469.jpg" class="rounded border border-dark"></ion-img>
-          </div>
-        </ion-text>
-      </div>
-    </div>    
-  </div>
+  <ion-text class="bg">
+    <h1 class="text-center">Acerca de Nosotros</h1>
+    <p class="h5  rounded text-center">
+      Hola usuario,nos presentamos
+      somos Franco García,Daniel Sanchez y Diego Guerrero.<br>
+      Y al igual que tu somos estudiantes de DuocUC pertenecientes a la carrera Analista Programador
+      Computacional. <br><br>
+      Nuestro objetivo con nuestra app se resume en una frase <br>
+      "<span>Llevarte Sano a Casa</span>" <br><br>
+      Sabemos que la vuelta a clases presenciales no ha sido facil en una epoca donde debido al COVID-19
+      las instituciones educacionales han debido implementar las clases Online. <br><br>
+      Nuestro propuesta consiste en que alumnos voluntarios que cuenten con movilidad propia ayudaran a retornar a sus
+      hogares a todos aquellos que no posean esa facilidad.
+    </p>
+  </ion-text>
+
 
 </ion-content>

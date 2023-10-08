@@ -1,29 +1,31 @@
-<ion-content>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-6 me-3">
-                <img src="assets/icon/caballo.png" alt="">
-            </div>
-        </div>
-    </div>
+<ion-content [fullscreen]="true">
     <div class="container" id="contenedor">
         <div class="row justify-content-center ">
-            <div class="col-sm-6">
-                <form action="" class="text-center">
-                    <div class="form-group mb-4">
-                        <label for="" class="form-label rounded mb-3 ">Correo Institucional</label>
-                        <input type="email" placeholder="Ingrese su correo de DuocUc" class="form-control">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="" class="form-label rounded mb-3 ">Contraseña</label>
-                        <input type="password" placeholder="Ingrese su contraseña" class="form-control">
-                        <h5>Si aun no tienes cuenta, <span routerLink="/registro">Registrate Aqui.</span></h5>
-                        <h5>¿Olvidaste tu contraseña? <span routerLink="/restablecer-pass">Haz click Aqui.</span></h5>
-                    </div>
-                    <div class="form-group mt-3" id="boton">
-                        <ion-button class="rounded" routerLink="/inicio">Ingresar</ion-button>
-                    </div>
-                </form>
+            <ion-img src="assets/icon/caballo.png" style="position: fixed;"></ion-img>
+            <div class="col-sm-6 " id="form">
+                <ion-title class="h1 mb-5">INICIO DE SESION</ion-title>
+
+                <ion-item class="mb-3">
+                    <ion-label position="floating">Correo Institucional</ion-label>
+                    <ion-input type="email" required placeholder="Ingrese su correo de DUOC UC" #correo></ion-input>
+                </ion-item>
+                <ion-item class="mb-3">
+                    <ion-label position="floating">Contraseña</ion-label>
+                    <ion-input type="password" required placeholder="Ingrese su contraseña de DUOC UC" #pass>
+                    </ion-input>
+                </ion-item>
+
+                <div class="alert alert-danger" [hidden]="bloqueo">
+                    <ion-text>El correo o la contraseña es incorrecto, revise e intentelo denuevo.</ion-text>
+                </div>
+
+                <ion-button expand="full" class="border border-dark mb-3" (click)="login()" [disabled]="correo.value=='' || pass.value=='' ">Ingresar</ion-button>
+
+                <div class="text-center">
+                    <ion-text>Si aun no tienes cuenta, <span routerLink="/registro">Registrate Aqui.</span></ion-text>
+                    <ion-text>¿Olvidaste tu contraseña? <span routerLink="/restablecer-pass">Haz click
+                            Aqui.</span></ion-text>
+                </div>
             </div>
         </div>
     </div>

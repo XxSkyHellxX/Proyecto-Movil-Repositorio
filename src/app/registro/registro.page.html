@@ -1,54 +1,109 @@
 <ion-content>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-sm-6 me-3">
+      <div class="col-sm-6">
         <img src="assets/icon/caballo.png" alt="">
       </div>
     </div>
   </div>
-  <div class="container" id="contenedor">
-    <div class="row justify-content-center ">
-      <div class="col-sm-6">
-        <form action="" class="text-center">
-          <div class="form-group mb-3">
-            <label for="" class="form-label rounded mb-2 ">Nombre</label>
-            <input type="text" placeholder="Ingrese nombre" class="form-control">
-          </div>
-          <div class="form-group mb-2">
-            <label for="" class="form-label rounded mb-2 ">Apellido</label>
-            <input type="text" placeholder="Ingrese su apellido" class="form-control">
-          </div>
-          <div class="form-group mb-2">
-            <label for="" class="form-label rounded mb-2 ">Correo Institucional</label>
-            <input type="text" placeholder="Ingrese su correo de DuocUc" class="form-control">
-          </div>
-          <div class="form-group mb-2">
-            <label for="" class="form-label rounded mb-2 ">Celular</label>
-            <input type="number" placeholder="Ingrese su numero de celular" class="form-control">
-          </div>
-          <div class="form-group mb-2">
-            <label for="" class="form-label rounded mb-2 ">Rut</label>
-            <input type="text" placeholder="Ingrese su rut" class="form-control">
-          </div>
-          <div class="form-group mb-2">
-            <label for="" class="form-label rounded mb-2 ">Contraseña</label>
-            <input type="password" placeholder="Ingrese su contraseña" class="form-control">
-          </div>
-          <div class="form-group mb-2">
-            <label for="" class="form-label rounded mb-2 ">¿Posee un vehiculo?</label>
-            <select name="" id="" class="form-select">
-              <option selected>Seleccione una opcion</option>
-              <option value="">Si</option>
-              <option value="">No</option>
-            </select>
-          </div>
-          <div class="form-group mt-4" id="boton">
-            <ion-button class="rounded" routerLink="/login">Registrar</ion-button>
-          </div>
-          
-        </form>
-      </div>
-    </div>
-  </div>
 
+
+  <div class="border border-dark">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="newDato.nombre" #nombre="ngModel" required placeholder="Ingrese su nombre">
+      </ion-input>
+      <div class="alert alert-danger " [hidden]="nombre.valid || nombre.pristine">
+        <ion-text>El nombre es obligatorio</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input type="text" required [(ngModel)]="newDato.apellido" placeholder="Ingrese su apellido"
+        #apellido="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="apellido.valid || apellido.pristine">
+        <ion-text>El apellido es obligatorio, verifique que los datos esten correctos.</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Correo Institucional</ion-label>
+      <ion-input type="email" required [(ngModel)]="newDato.correo" placeholder="Ingrese su correo de DUOC UC"
+        #correo="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="correo.valid || correo.pristine">
+        <ion-text>El correo es obligatorio o verifique el formato</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Celular</ion-label>
+      <ion-input type="number" required [(ngModel)]="newDato.celular"
+        placeholder="Ingrese su numero de celular: 9 xxxx xxxx" #celular="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="celular.valid || celular.pristine">
+        <ion-text>El celular es obligatorio</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">RUT</ion-label>
+      <ion-input type="text" required [(ngModel)]="newDato.rut" placeholder="Ingrese su RUT, Con puntos y DV"
+        #rut="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="rut.valid || rut.pristine">
+        <ion-text>El RUT es obligatorio, verifique el formato</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" required [(ngModel)]="newDato.pass" placeholder="Ingrese su contraseña de DUOC UC"
+        #pass="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="pass.valid || pass.pristine">
+        <ion-text>La contraseña es obligatoria</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-list>
+      <ion-label position="floating"> ¿Posee Vehiculo?</ion-label>
+      <ion-item>
+        <ion-select required [(ngModel)]="newDato.vehiculo" placeholder="Selecciona una opcion" #vehiculo="ngModel">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+        </ion-select>
+        <div class="alert alert-danger " [hidden]="vehiculo.valid || vehiculo.pristine">
+          <ion-text>Selecciona una opcion</ion-text>
+        </div>
+      </ion-item>
+    </ion-list>
+
+
+    <div [hidden]="vehiculo.value!='Si'">
+      <ion-item>
+        <ion-label position="floating">Color</ion-label>
+        <ion-input type="text" [(ngModel)]="newDato.patente" placeholder="Ingrese la patente de su vehiculo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Marca</ion-label>
+        <ion-input type="text" [(ngModel)]="newDato.marca" placeholder="Ingrese la marca de su vehiculo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Modelo</ion-label>
+        <ion-input type="text" [(ngModel)]="newDato.modelo" placeholder="Ingrese el modelo de su auto"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Color</ion-label>
+        <ion-input type="text" [(ngModel)]="newDato.color" placeholder="Ingrese la color de su auto"></ion-input>
+      </ion-item>
+
+    </div>
+
+    <ion-button (click)="addDatos()" expand="full" class="border border-dark" routerLink="/login"
+      [disabled]="block!=(nombre.valid && apellido.valid && correo.valid && celular.valid && rut.valid && pass.valid && vehiculo.valid)">
+      Registrarme
+    </ion-button>
+    <ion-button expand="full" class="border border-dark mb-1" routerLink="/login">Cancelar</ion-button>    
+  </div>
 </ion-content>

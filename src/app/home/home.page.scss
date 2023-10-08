@@ -1,13 +1,14 @@
 @media(min-width:360px){
-  img{
-    margin-top: 230px;
+  ion-img{
     opacity: 1;
-    width: 200px;
-    height: 200px;
-
+    position: fixed;
     animation-name: logo;
     animation-duration: 4s;
-    
+    margin-top: 100px;
+    width: 400px;
+    height: 400px;
+
+
     @keyframes logo{
       0%{
         opacity: 0;

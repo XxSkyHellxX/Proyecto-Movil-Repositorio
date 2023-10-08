@@ -3,17 +3,25 @@
     margin-top: 10px;
   }
 
-  label {
-    color: rgb(0, 0, 0);
-    font-family: 'Italiana', serif;
-    font-size: 20px;
-    text-transform: uppercase;
-    padding: 7px;
+  ion-item {
+    color: black  !important;
+    --background: white;
+  }
+
+  ion-item ion-label{
+    color: black;
+    font-family: 'Italiana', serif !important;
+    font-size: 17px;
     font-weight: bolder;
   }
 
+  ion-list{
+    color: black;
+    background: white;
+  }
 
-  input {
+  ion-input {
+    color: black;
     font-family: 'Italiana', serif;
     font-weight: bolder;
   }
@@ -54,4 +62,8 @@
     border: 1px solid black;
   }
 
+  ion-text{
+    font-family: 'Italiana', serif;
+    font-weight: bold;
+  }
 }

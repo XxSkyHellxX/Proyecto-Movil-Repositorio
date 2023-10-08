@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  }
 ];
 
 @NgModule({
@@ -47,9 +51,16 @@ export class AppRoutingModule {
       redirecTo: '/inicio'
     },
     {
+      icon: 'person-outline',
+      name: ' Perfil',
+      redirecTo: '/perfil'
+    },
+    {
       icon:'help-outline',
       name:'Acerca De',
       redirecTo:'/acerca-de'
     }
   ];
+  
+  usuario:any=[]
 }

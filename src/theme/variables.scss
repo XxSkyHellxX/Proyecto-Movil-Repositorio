@@ -13,23 +13,63 @@
 
 
 
-  @media(min-width:360px) {
-    img {
-      margin-top: 20px;
-      margin-left: 79px;
-      width: 200px;
-      height: 200px;
-    }
-    ion-content {
-      --background: rgba(255, 255, 255, 0.936);
-    }
-    ion-toolbar {
-      --background: rgba(255, 255, 255, 0);
-      
-    }
+  ion-img {
+    width: 200px;
+    height: 200px;
+  }
 
-    ion-menu{
-      --background:rgb(255, 255, 255);
+  ion-content {
+    --background: rgba(255, 255, 255, 0.936);
+    position: fixed;
+
+
+    animation-name: cont;
+    animation-duration: 2s;
+
+    @keyframes cont {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  ion-toolbar {
+    --background: rgba(255, 255, 255, 0);
+
+  }
+
+  ion-menu {
+    --background: rgb(255, 255, 255);
+  }
+
+  ion-tab-bar {
+    --background: rgba(0, 0, 0, 0.852);
+    border: 1px solid white;
+    font-family: 'Italiana', serif;
+    color: white;
+    font-weight: bolder;
+  }
+
+  ion-tab-button:hover {
+    background-color: white;
+    color: black;
+    animation-name: bar;
+    animation-duration: 1s;
+
+    @keyframes bar {
+      0% {
+        opacity: 0;
+        color: black;
+      }
+
+      100% {
+        opacity: 1;
+        color: black;
+      }
     }
   }
 
