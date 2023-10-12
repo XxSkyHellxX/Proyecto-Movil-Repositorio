@@ -1,17 +1,8 @@
 <ion-content [fullscreen]="true">
-  <ion-tabs>
-    <ion-tab-bar slot="bottom" class="">
-      <ion-tab-button tab="home" *ngFor="let item of componentes" routerLink="{{item.redirecTo}}">
-        <ion-icon name="{{item.icon}}" class="mb-1 mt-1"></ion-icon >
-        <div class="h6">{{item.name}}</div>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-
-  <ion-menu contentId="main-content" style="position: fixed;">
+  <ion-menu contentId="main-content">
     <ion-header>
       <ion-toolbar>
-        <ion-title slot="end"> TeLlevoApp</ion-title>
+        <ion-title slot="end" style="color: black;"> TeLlevoApp</ion-title>
         <ion-img style="width: 50px;height: 50px;" src="assets/icon/caballo.png" slot="start" class="ms-3"></ion-img>
       </ion-toolbar>
     </ion-header>
@@ -22,22 +13,15 @@
             <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> {{menu.name}}
           </ion-button>
         </ion-item>
-        <ion-item>
-          <ion-button class="my-3" shape="round" size="default" routerLink="/login">
-            <ion-icon class="me-3 mb-1" name="arrow-back-outline"></ion-icon> logout
-          </ion-button>
-        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
-
   <div id="main-content">
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
           <ion-menu-button style="color: black;"></ion-menu-button>
         </ion-buttons>
-        <ion-title slot="end">TeLlevoApp</ion-title>
       </ion-toolbar>
     </ion-header>
   </div>
@@ -50,13 +34,17 @@
       Y al igual que tu somos estudiantes de DuocUC pertenecientes a la carrera Analista Programador
       Computacional. <br><br>
       Nuestro objetivo con nuestra app se resume en una frase <br>
-      "<span>Llevarte Sano a Casa</span>" <br><br>
+      "<span>Llevarte Sano a Casa</span>" <br>
+      <ion-img src="https://lavozdemaipu.cl/wp-content/uploads/2023/09/IMG_5721.jpeg" class="my-2"></ion-img>
       Sabemos que la vuelta a clases presenciales no ha sido facil en una epoca donde debido al COVID-19
       las instituciones educacionales han debido implementar las clases Online. <br><br>
       Nuestro propuesta consiste en que alumnos voluntarios que cuenten con movilidad propia ayudaran a retornar a sus
-      hogares a todos aquellos que no posean esa facilidad.
+      hogares a todos aquellos que no posean esa facilidad.      
     </p>
+
   </ion-text>
+  <ion-button slot="top">Regresar</ion-button>
 
 
 </ion-content>
+

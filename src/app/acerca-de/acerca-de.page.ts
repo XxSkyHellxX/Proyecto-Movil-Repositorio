@@ -10,6 +10,7 @@ export class AcercaDePage implements OnInit {
   constructor(private rutas:AppRoutingModule) { }
 
   componentes=this.rutas.componentes;
+  tabs=this.rutas.tabs;
   ngOnInit() {
   }
 

@@ -1,13 +1,4 @@
 <ion-content [fullscreen]="true">
-  <ion-tabs>
-    <ion-tab-bar slot="bottom" class="">
-      <ion-tab-button tab="home" *ngFor="let item of componentes" routerLink="{{item.redirecTo}}">
-        <ion-icon name="{{item.icon}}" class="mb-1 mt-1"></ion-icon>
-        <div class="h6">{{item.name}}</div>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-
   <ion-list id="cont" class="pe-5">
     <ion-item>
       <h2 class="h2">TeLlevoApp</h2>
@@ -20,10 +11,6 @@
         <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> <span>{{menu.name}}</span>
       </ion-button>
     </ion-item>
-    <ion-item>
-      <ion-button  class="my-3" shape="round" size="default" routerLink="/login">
-        <ion-icon class="me-3" name="arrow-back-outline"></ion-icon> <span>logout</span>
-      </ion-button>
-    </ion-item>
+
   </ion-list>
 </ion-content>

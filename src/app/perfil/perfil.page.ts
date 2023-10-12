@@ -10,8 +10,11 @@ export class PerfilPage implements OnInit {
   constructor(private rutas:AppRoutingModule) { }
 
   componentes=this.rutas.componentes;
-  usuario = this.rutas.usuario
+  usuario = this.rutas.usuario;
+  tabs = this.rutas.tabs;
+  
   ngOnInit() {
   }
+
 
 }
