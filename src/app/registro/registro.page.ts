@@ -28,9 +28,6 @@ export class RegistroPage implements OnInit {
 
   }
 
-
-
-
   loadDatos() {
     this.storageService.getDatos().then(datos => {
       this.datos = datos;
