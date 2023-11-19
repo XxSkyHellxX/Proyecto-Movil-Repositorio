@@ -38,6 +38,26 @@ const routes: Routes = [
   {
     path: 'tiempo',
     loadChildren: () => import('./tiempo/tiempo.module').then(m => m.TiempoPageModule)
+  },
+  {
+    path: 'modificar-datos',
+    loadChildren: () => import('./modificar-datos/modificar-datos.module').then( m => m.ModificarDatosPageModule)
+  },
+  {
+    path: 'ayuda',
+    loadChildren: () => import('./ayuda/ayuda.module').then( m => m.AyudaPageModule)
+  },
+  {
+    path: 'vehiculo',
+    loadChildren: () => import('./vehiculo/vehiculo.module').then( m => m.VehiculoPageModule)
+  },
+  {
+    path: 'buscar-vehiculo',
+    loadChildren: () => import('./buscar-vehiculo/buscar-vehiculo.module').then( m => m.BuscarVehiculoPageModule)
+  },
+  {
+    path: 'mapa',
+    loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
   }
 ];
 
@@ -66,34 +86,28 @@ export class AppRoutingModule {
     }
     ,
     {
-      icon: 'help-outline',
+      icon: 'accessibility-outline',
       name: 'Acerca De',
       redirecTo: '/acerca-de'
-    },
+    }
+    ,
     {
-      icon:'arrow-back-outline',
-      name: 'Cerrar Sesion',
-      redirecTo: '/login'
+      icon: 'help-outline',
+      name: 'Ayuda',
+      redirecTo: '/ayuda'
     },
-
   ];
 
-  tabs = [
-    {
-      icon: 'home',
-      name: ' Inicio',
-      redirecTo: '/inicio'
-    },
-    {
-      icon: 'person-outline',
-      name: ' Perfil',
-      redirecTo: '/perfil'
-    },
-    {
-      icon:'arrow-back-outline',
-      name: 'Cerrar Sesion',
-      redirecTo: '/login'
-    },
-  ]
+
+
   usuario: any = []
+  usuarioFireBase:any[]=[];
+  usuarioVehiculo:any[]=[];
+  vehiculos:any[]=[];
+  uid:any;
+  destinoConductor:any;
+
+  lat:number=0
+  lng:number=0
+
 }

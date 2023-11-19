@@ -1,26 +1,21 @@
 <ion-content [fullscreen]="true">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-6 me-3">
-                <img src="assets/icon/caballo.png" alt="">
-            </div>
-        </div>
-    </div>
     <div class="container" id="contenedor">
         <div class="row justify-content-center ">
-            <div class="col-sm-6">
-                <form action="" class="text-center">
-                    <div class="form-group mb-4">
-                        <label for="" class="form-label rounded mb-3 ">Correo Institucional</label>
-                        <input type="email" placeholder="Ingrese su correo de DuocUc" class="form-control">
-                    </div>
-                    <div class="form-group mb-2">
-                        <h5>Te enviaremos las instrucciones para que puedas cambiar tu contraseña.</h5>
-                    </div>
-                    <div class="form-group mt-3" id="boton">
-                        <ion-button class="rounded" routerLink="/login">Ingresar</ion-button>
-                    </div>
-                </form>
+            <ion-img src="assets/icon/caballo.png" style="position: fixed;"></ion-img>
+            <div class="col-sm-6 " id="form">
+                <ion-title class="h3 mb-4">REESTABLECER CONTRASEÑA</ion-title>
+
+                <ion-item class="mb-3">
+                    <ion-label position="floating">Correo Institucional</ion-label>
+                    <ion-input type="email" required placeholder="Ingrese su correo de DUOC UC"
+                        [(ngModel)]="User.correo"></ion-input>
+                </ion-item>
+
+
+                <ion-button expand="full" class="border border-dark mb-3" (click)="resetPassword()"
+                    [disabled]="(User.correo)==''">Reestablecer Contraseña</ion-button>
+                <ion-button expand="full" class="border border-dark mb-3" routerLink="/login"
+                    >Cancelar</ion-button>
             </div>
         </div>
     </div>

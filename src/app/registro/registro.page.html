@@ -76,32 +76,21 @@
       </ion-item>
     </ion-list>
 
+    <ion-item class="">
+      <ion-label position="floating">Foto Perfil</ion-label> 
+      <ion-input type="file" [(ngModel)]="newDato.foto" #foto="ngModel" required  (change)="onFileSelected($event)"
+        placeholder="Ingrese una foto de perfil">
+      </ion-input>
+      <div class="alert alert-danger " [hidden]="foto.valid || foto.pristine">
+        <ion-text>La foto es obligatoria</ion-text>
+      </div>
+    </ion-item>
 
-    <div [hidden]="vehiculo.value!='Si'">
-      <ion-item>
-        <ion-label position="floating">Color</ion-label>
-        <ion-input type="text" [(ngModel)]="newDato.patente" placeholder="Ingrese la patente de su vehiculo"></ion-input>
-      </ion-item>
+    
 
-      <ion-item>
-        <ion-label position="floating">Marca</ion-label>
-        <ion-input type="text" [(ngModel)]="newDato.marca" placeholder="Ingrese la marca de su vehiculo"></ion-input>
-      </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Modelo</ion-label>
-        <ion-input type="text" [(ngModel)]="newDato.modelo" placeholder="Ingrese el modelo de su auto"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Color</ion-label>
-        <ion-input type="text" [(ngModel)]="newDato.color" placeholder="Ingrese la color de su auto"></ion-input>
-      </ion-item>
-
-    </div>
-
-    <ion-button (click)="addDatos()" expand="full" class="border border-dark" routerLink="/login"
-      [disabled]="block!=(nombre.valid && apellido.valid && correo.valid && celular.valid && rut.valid && pass.valid && vehiculo.valid)">
+     <ion-button (click)="register()"  expand="full" class="border border-dark"
+      [disabled]="block!=(nombre.valid && apellido.valid && correo.valid && celular.valid && rut.valid && pass.valid && vehiculo.valid && foto.valid)">
       Registrarme
     </ion-button>
     <ion-button expand="full" class="border border-dark mb-1" routerLink="/login">Cancelar</ion-button>    

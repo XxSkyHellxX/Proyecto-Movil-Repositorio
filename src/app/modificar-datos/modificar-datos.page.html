@@ -1,0 +1,84 @@
+<ion-content>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-6">
+        <img src="assets/icon/caballo.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="border border-dark">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="newDato.nombre" #nombre="ngModel" required placeholder="Ingrese su nombre">
+      </ion-input>
+      <div class="alert alert-danger " [hidden]="nombre.valid || nombre.pristine">
+        <ion-text>El nombre es obligatorio</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input type="text" required [(ngModel)]="newDato.apellido" placeholder="Ingrese su apellido"
+        #apellido="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="apellido.valid || apellido.pristine">
+        <ion-text>El apellido es obligatorio, verifique que los datos esten correctos.</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Celular</ion-label>
+      <ion-input type="number" required [(ngModel)]="newDato.celular"
+        placeholder="Ingrese su numero de celular: 9 xxxx xxxx" #celular="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="celular.valid || celular.pristine">
+        <ion-text>El celular es obligatorio</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">RUT</ion-label>
+      <ion-input type="text" required [(ngModel)]="newDato.rut" placeholder="Ingrese su RUT, Con puntos y DV"
+        #rut="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="rut.valid || rut.pristine">
+        <ion-text>El RUT es obligatorio, verifique el formato</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" required [(ngModel)]="newDato.pass" placeholder="Ingrese su contraseña de DUOC UC"
+        #pass="ngModel"> </ion-input>
+      <div class="alert alert-danger " [hidden]="pass.valid || pass.pristine">
+        <ion-text>La contraseña es obligatoria</ion-text>
+      </div>
+    </ion-item>
+
+    <ion-list>
+      <ion-label position="floating"> ¿Posee Vehiculo?</ion-label>
+      <ion-item>
+        <ion-select required [(ngModel)]="newDato.vehiculo" placeholder="Selecciona una opcion" #vehiculo="ngModel">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+        </ion-select>
+        <div class="alert alert-danger " [hidden]="vehiculo.valid || vehiculo.pristine">
+          <ion-text>Selecciona una opcion</ion-text>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-item class="">
+      <ion-label position="floating">Foto Perfil</ion-label> 
+      <ion-input type="file" [(ngModel)]="newDato.foto" #foto="ngModel" required  (change)="onFileSelected($event)"
+        placeholder="Ingrese una foto de perfil">
+      </ion-input>
+      <div class="alert alert-danger " [hidden]="foto.valid || foto.pristine">
+        <ion-text>La foto es obligatoria</ion-text>
+      </div>
+    </ion-item>
+    
+     <ion-button expand="full" class="border border-dark" (click)="mostrarConfirmacion()"
+      [disabled]="block!=(nombre.valid && apellido.valid  && celular.valid && rut.valid && pass.valid && vehiculo.valid && foto.valid)">
+      Modificar Datos
+    </ion-button>
+    <ion-button expand="full" class="border border-dark mb-1" routerLink="/inicio">Cancelar</ion-button>    
+  </div>
+</ion-content>

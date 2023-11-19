@@ -1,35 +1,80 @@
-<ion-content [fullscreen]="true">
-  <ion-tabs > 
-    <ion-tab-bar slot="bottom" style="background-color: black;" >
-      <ion-tab-button tab="home" *ngFor="let item of tabs" routerLink="{{item.redirecTo}}">
-        <ion-icon name="{{item.icon}}" class="mb-1 mt-1"></ion-icon>
-        <div class="h6">{{item.name}}</div>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+<ion-content [fullscreen]="true" *ngFor="let user of usuario">
+  <div>
+    <ion-menu contentId="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title slot="end" style="color: black;"> TeLlevoApp</ion-title>
+          <ion-img style="width: 50px;height: 50px;" src="assets/icon/caballo.png" slot="start" class="ms-3"></ion-img>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list class="rounded mt-5">
+          <ion-item *ngFor="let menu of componentes">
+            <ion-button class="my-3" shape="round" size="default" routerLink="{{menu.redirecTo}}">
+              <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> {{menu.name}}
+            </ion-button>
+          </ion-item>
+  
+          <div >
+            <div *ngIf="user.vehiculo=='Si' else Pasajero">
+              <ion-item >
+                <ion-button class="my-3" shape="round" size="default" routerLink="/vehiculo">
+                  <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Mi Vehiculo
+                </ion-button>
+              </ion-item>
+            </div>
+          </div>
+  
+          <ng-template #Pasajero>
+            <ion-item >
+              <ion-button class="my-3" shape="round" size="default" routerLink="/buscar-vehiculo">
+                <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Buscar Viaje
+              </ion-button>
+            </ion-item>
+          </ng-template>
+  
+          <ion-item >
+            <ion-button class="my-3" shape="round" size="default" (click)="cerrarSesion()">
+              <ion-icon class="me-3 mb-1" name="arrow-back-outline"></ion-icon>Cerrar Sesion
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <div id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button style="color: black;"></ion-menu-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+   </div>
 
-  <ion-card *ngFor="let item of usuario">
+  <ion-card class="mt-5 pb-3" id="Perfil" >
     <ion-card-header>
-      <div class="ion-text-center">
-        <ion-img src="https://assets.stickpng.com/images/585e4beacb11b227491c3399.png"
-          style="margin: auto;"></ion-img>
-      </div>
-      <ion-title class="h3">{{item.nombre}} {{item.apellido}}</ion-title>
+      <ion-title><h1>Bienvenido a Tu Perfil</h1></ion-title>
     </ion-card-header>
 
-    <div class="bg bg-dark pb-1 pt-1">
-      <div>
-        <ion-title class="h1">RUT</ion-title>
-        <ion-title class="h2">{{item.rut}}</ion-title>
-      </div>
-      <div>
-        <ion-title class="h1">Celular</ion-title>
-        <ion-title class="h2">+56 {{item.celular}}</ion-title>
-      </div>
-      <div>
-        <ion-title class="h1">Correo</ion-title>
-        <ion-title class="h2">{{item.correo}}</ion-title>
-      </div>
-    </div>
+    <ion-card-content class="">
+      <ion-img src="{{user.fotoPerfil}}" class="rounded mb-3"></ion-img>
+
+      <ion-text><h3>Nombre</h3></ion-text>
+      <ion-text><h2>{{user.nombre}} </h2></ion-text>
+      <br>
+      <ion-text><h3>Apellido/s</h3></ion-text>
+      <ion-text><h2>{{user.apellido}} </h2></ion-text>
+      <br>
+      <ion-text><h3>Correo</h3></ion-text>
+      <ion-text><h2>{{user.correo}} </h2></ion-text>
+      <br>
+      <ion-text><h3>Celular</h3></ion-text>
+      <ion-text><h2> {{user.celular}}</h2></ion-text>
+      <br>
+      <ion-text><h3>Rut</h3></ion-text>
+      <ion-text><h2>{{user.rut}}</h2></ion-text>
+    </ion-card-content>
+
   </ion-card>
 </ion-content>

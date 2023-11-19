@@ -9,6 +9,12 @@ import { IonicStorageModule } from '@ionic/storage-angular'
 import { Drivers } from '@ionic/storage'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPage } from './login/login.page';
+import { AngularFireModule } from '@angular/fire/compat'
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import {AngularFireStorageModule} from '@angular/fire/compat/storage'
+import {AngularFireAuthModule} from '@angular/fire/compat/auth'
+import {Geolocation} from '@awesome-cordova-plugins/geolocation/ngx'
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,8 +22,9 @@ import { LoginPage } from './login/login.page';
     IonicStorageModule.forRoot({
       name: 'mydb',
       driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage]
-    }), FormsModule, ReactiveFormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },LoginPage],
+    }), FormsModule, ReactiveFormsModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule
+  ,AngularFireStorageModule,AngularFireAuthModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, LoginPage,Geolocation],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

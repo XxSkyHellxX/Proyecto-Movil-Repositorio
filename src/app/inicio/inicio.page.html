@@ -1,16 +1,31 @@
-<ion-content [fullscreen]="true">
-  <ion-list id="cont" class="pe-5">
-    <ion-item>
-      <h2 class="h2">TeLlevoApp</h2>
-    </ion-item>
-    <ion-item *ngFor="let user of usuario">
-      <ion-title>Bienvenido {{user.nombre}} {{user.apellido}}</ion-title>
-    </ion-item>
-    <ion-item *ngFor="let menu of componentes">
-      <ion-button  class="my-3" shape="round" size="default" routerLink="{{menu.redirecTo}}">
-        <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> <span>{{menu.name}}</span>
-      </ion-button>
-    </ion-item>
+<ion-content [fullscreen]="true" >
+  <div  *ngFor="let user of usuario" class="text-center mt-3" >
+    <ion-title class="mb-2"><h2>TeLlevoApp</h2></ion-title>
+    <ion-title class="mb-4">Bienvenid@ {{user.nombre}} {{user.apellido}}</ion-title>
+  
+    <div *ngFor="let menu of componentes">
+        <ion-button shape="round" size="default" routerLink="{{menu.redirecTo}}" class="my-3">
+          <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> <span>{{menu.name}}</span>
+        </ion-button>
+    </div>
 
-  </ion-list>
+    <div *ngIf="user.vehiculo=='Si' else Pasajero">
+        <ion-button class="my-3" shape="round" size="default" routerLink="/vehiculo">
+          <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Mi Vehiculo
+        </ion-button><br>
+        <ion-button class="my-3" shape="round" size="default" routerLink="/buscar-vehiculo">
+          <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Pasajeros
+        </ion-button>
+    </div>
+
+    <ng-template class="text-center "#Pasajero>
+        <ion-button class="my-3" shape="round" size="default" routerLink="/buscar-vehiculo" >
+          <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Viajes
+        </ion-button><br>
+    </ng-template>
+    <ion-button class="my-3" shape="round" size="default" (click)="cerrarSesion()">
+      <ion-icon class="me-3 mb-1" name="arrow-back-outline"></ion-icon>Cerrar Sesion
+    </ion-button>
+  </div>
+
 </ion-content>

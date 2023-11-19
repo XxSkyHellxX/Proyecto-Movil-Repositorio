@@ -1,18 +1,5 @@
-@media(min-width:360px) {
-    ion-content {
-        --background: rgb(255, 255, 255);
-    }
-    ion-list {
-        background-color: transparent;
-        
-    }
-    ion-img{
-        margin-top: 155px;
-        animation: logo 4s infinite;
-        position: fixed;
-        width: 500px;
-        height: 500px;
-    }
+
+
     ion-item{
         --background: transparent;
         color: black;
@@ -30,88 +17,24 @@
         font-family: 'Italiana', serif;
         text-shadow: 0px 0px 1px black;
         font-weight: bolder;
+        justify-content: center;
+        --border-color:black;
     }
     
-    #mensaje{
-        box-shadow: 0px 0px 10px black;
-        font-weight: bolder;
-        animation-name: eliminar;
-        animation-duration: 4s;
-        opacity: 0;
-        font-family: 'Italiana', serif;
-        text-shadow: 0px 0px 1px black;
-
-        @keyframes eliminar{
-            0%{ 
-                opacity: 0;
-            }
-
-            50%{
-                opacity: 1;
-            }
-
-            100%{
-                opacity: 0;
-            }
-        }
-    }
-    span{
-        color: black;
-    }
-
-    #cont{
-        position: absolute;
-        margin-top: 100px;
-        border: 1px solid black;
-        background-color: rgba(0, 0, 0, 0.619);
-        animation: cont 2.5s;
-        padding-top: 25px ;
-        padding-bottom: 50px ;
-        text-shadow: 0px 0px 1px white;
-        font-weight: bolder;
-        text-align: center;
-        position: fixed;
-    }
-
-    @keyframes logo{
-        0%{
-            opacity: 0.5;
-        }
-        50%{
-            opacity: 1;
-        }
-        100%{
-            opacity: 0.5;
-        }
-    }
-
-    @keyframes cont{
-        0%{
-            opacity: 0;
-            margin-left: 500px;
-        }
-
-        100%{
-            opacity: 1;
-            margin-left: 0px;
-        }
-    }
 
     h2{
         text-align: center;
         font-family: 'Italiana', serif;
         font-size: 60px;
-        color: white;
-        text-shadow: 0px 0px 5px white;    
+        color: black;
+        text-shadow: 0px 0px 5px black;    
         
     }
 
     ion-title{
         text-align: center;
         font-family: 'Italiana', serif;
-        color: white;
-        text-shadow: 0px 0px 5px white; 
+        color: black;
+        text-shadow: 0px 0px 5px black; 
     }
 
-
-}

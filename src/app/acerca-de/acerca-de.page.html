@@ -1,4 +1,5 @@
 <ion-content [fullscreen]="true">
+ <div *ngFor="let user of usuario">
   <ion-menu contentId="main-content">
     <ion-header>
       <ion-toolbar>
@@ -13,6 +14,30 @@
             <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> {{menu.name}}
           </ion-button>
         </ion-item>
+
+        <div >
+          <div *ngIf="user.vehiculo=='Si' else Pasajero">
+            <ion-item >
+              <ion-button class="my-3" shape="round" size="default" routerLink="/vehiculo">
+                <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Mi Vehiculo
+              </ion-button>
+            </ion-item>
+          </div>
+        </div>
+
+        <ng-template #Pasajero>
+          <ion-item >
+            <ion-button class="my-3" shape="round" size="default" routerLink="/buscar-vehiculo">
+              <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Buscar Viaje
+            </ion-button>
+          </ion-item>
+        </ng-template>
+
+        <ion-item >
+          <ion-button class="my-3" shape="round" size="default" (click)="cerrarSesion()">
+            <ion-icon class="me-3 mb-1" name="arrow-back-outline"></ion-icon>Cerrar Sesion
+          </ion-button>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
@@ -25,7 +50,8 @@
       </ion-toolbar>
     </ion-header>
   </div>
-
+ </div>
+ 
   <ion-text class="bg">
     <h1 class="text-center">Acerca de Nosotros</h1>
     <p class="h5  rounded text-center">

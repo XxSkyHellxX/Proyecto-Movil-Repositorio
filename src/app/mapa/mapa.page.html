@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true">
+    <div *ngFor="let user of usuario">
+        <ion-menu contentId="main-content">
+          <ion-header>
+            <ion-toolbar>
+              <ion-title slot="end" style="color: black;"> TeLlevoApp</ion-title>
+              <ion-img style="width: 50px;height: 50px;" src="assets/icon/caballo.png" slot="start" class="ms-3"></ion-img>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <ion-list class="rounded mt-5">
+              <ion-item *ngFor="let menu of componentes">
+                <ion-button class="my-3" shape="round" size="default" routerLink="{{menu.redirecTo}}">
+                  <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> {{menu.name}}
+                </ion-button>
+              </ion-item>
+      
+              <div >
+                <div *ngIf="user.vehiculo=='Si' else Pasajero">
+                  <ion-item >
+                    <ion-button class="my-3" shape="round" size="default" routerLink="/vehiculo">
+                      <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Mi Vehiculo
+                    </ion-button>
+                  </ion-item>
+                </div>
+              </div>
+      
+              <ng-template #Pasajero>
+                <ion-item >
+                  <ion-button class="my-3" shape="round" size="default" routerLink="/buscar-vehiculo">
+                    <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Buscar Viaje
+                  </ion-button>
+                </ion-item>
+              </ng-template>
+      
+              <ion-item >
+                <ion-button class="my-3" shape="round" size="default" (click)="cerrarSesion()">
+                  <ion-icon class="me-3 mb-1" name="arrow-back-outline"></ion-icon>Cerrar Sesion
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ion-menu>
+        <div id="main-content">
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-menu-button style="color: black;"></ion-menu-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+        </div>
+       </div>
+
+    
+
+    <div id="map">
+
+    </div>
+</ion-content>

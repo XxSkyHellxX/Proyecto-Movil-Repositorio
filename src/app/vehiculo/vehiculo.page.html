@@ -1,0 +1,182 @@
+<ion-content [fullscreen]="true">
+
+  <div class="mt-5" *ngIf="validado=='' else Modifica">
+    <ion-title class="mb-4">
+      <h1>Registro De Vehiculo</h1>
+      <ion-text class="text-center">
+        <h5>Ya que no tienes un vehiculo registrado <br> ¡Registra Uno!</h5>
+      </ion-text>
+    </ion-title>
+
+    <div class="border border-dark">
+      <ion-item>
+        <ion-label position="floating">Patente</ion-label>
+        <ion-input type="text" [(ngModel)]="newVehiculo.patente" #patente="ngModel" required
+          placeholder="Ingrese su patente">
+        </ion-input>
+        <div class="alert alert-danger " [hidden]="patente.valid || patente.pristine">
+          <ion-text>La patente es obligatoria</ion-text>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Modelo</ion-label>
+        <ion-input type="text" [(ngModel)]="newVehiculo.modelo" #modelo="ngModel" required
+          placeholder="Ingrese su modelo">
+        </ion-input>
+        <div class="alert alert-danger " [hidden]="modelo.valid || modelo.pristine">
+          <ion-text>El modelo es obligatorio</ion-text>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Color</ion-label>
+        <ion-input type="text" [(ngModel)]="newVehiculo.color" #color="ngModel" required
+          placeholder="Ingrese color del vehiculo">
+        </ion-input>
+        <div class="alert alert-danger " [hidden]="color.valid || color.pristine">
+          <ion-text>El color es obligatorio</ion-text>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Marca</ion-label>
+        <ion-input type="text" [(ngModel)]="newVehiculo.marca" #marca="ngModel" required
+          placeholder="Ingrese marca de su vehiculo">
+        </ion-input>
+        <div class="alert alert-danger " [hidden]="marca.valid || marca.pristine">
+          <ion-text>La marca es obligatoria</ion-text>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Precio</ion-label>
+        <ion-input type="text" [(ngModel)]="newVehiculo.precio" #precio="ngModel" required
+          placeholder="Ingrese precio por viaje">
+        </ion-input>
+        <div class="alert alert-danger " [hidden]="precio.valid || precio.pristine">
+          <ion-text>El precio es obligatorio</ion-text>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Cantidad De Asientos Disponibles</ion-label>
+        <ion-input type="text" [(ngModel)]="newVehiculo.cantidadPasajeros" #cantidadPasajeros="ngModel" required
+          placeholder="Ingrese la cantidad de asientos disponibles">
+        </ion-input>
+        <div class="alert alert-danger " [hidden]="cantidadPasajeros.valid || cantidadPasajeros.pristine">
+          <ion-text>La cantidad de pasajeros es obligatoria</ion-text>
+        </div>
+      </ion-item>
+
+      <ion-item class="">
+        <ion-label position="floating">Foto Vehiculo</ion-label> 
+        <ion-input type="file" [(ngModel)]="newVehiculo.foto" #foto="ngModel" required  (change)="onFileSelected($event)"
+          placeholder="Ingrese una foto de su vehiculo">
+        </ion-input>
+        <div class="alert alert-danger " [hidden]="foto.valid || foto.pristine">
+          <ion-text>La foto es obligatoria</ion-text>
+        </div>
+      </ion-item>
+
+      <ion-button expand="full" class="border border-dark mb-2 mt-4" (click)="registrarVehiculo()"
+        [disabled]="block!=(patente.valid && modelo.valid && color.valid && marca.valid && cantidadPasajeros.valid && foto.valid && precio.valid)">
+        Registrar Vehiculo
+      </ion-button>
+      <ion-button expand="full" class="border border-dark" routerLink="/inicio">
+        Cancelar
+      </ion-button>
+    </div>
+  </div>
+
+  <ng-template #Modifica>
+    <div class="mt-5">
+
+      <ion-title class="mb-5">
+        <h1>Modifica Tu Vehiculo</h1>
+        <ion-text class="text-center">
+          <h5>Aqui puedes modificar datos de tu vehiculo</h5>
+        </ion-text>
+      </ion-title>
+  
+      <div class="border border-dark">
+        <ion-item>
+          <ion-label position="floating">Patente</ion-label>
+          <ion-input type="text" [(ngModel)]="newVehiculo.patente" #patente="ngModel" required
+            placeholder="Ingrese su patente">
+          </ion-input>
+          <div class="alert alert-danger " [hidden]="patente.valid || patente.pristine">
+            <ion-text>La patente es obligatoria</ion-text>
+          </div>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Modelo</ion-label>
+          <ion-input type="text" [(ngModel)]="newVehiculo.modelo" #modelo="ngModel" required
+            placeholder="Ingrese su modelo">
+          </ion-input>
+          <div class="alert alert-danger " [hidden]="modelo.valid || modelo.pristine">
+            <ion-text>El modelo es obligatorio</ion-text>
+          </div>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Color</ion-label>
+          <ion-input type="text" [(ngModel)]="newVehiculo.color" #color="ngModel" required
+            placeholder="Ingrese color del vehiculo">
+          </ion-input>
+          <div class="alert alert-danger " [hidden]="color.valid || color.pristine">
+            <ion-text>El color es obligatorio</ion-text>
+          </div>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Marca</ion-label>
+          <ion-input type="text" [(ngModel)]="newVehiculo.marca" #marca="ngModel" required
+            placeholder="Ingrese marca de su vehiculo">
+          </ion-input>
+          <div class="alert alert-danger " [hidden]="marca.valid || marca.pristine">
+            <ion-text>La marca es obligatoria</ion-text>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Precio</ion-label>
+          <ion-input type="text" [(ngModel)]="newVehiculo.precio" #precio="ngModel" required
+            placeholder="Ingrese precio por viaje">
+          </ion-input>
+          <div class="alert alert-danger " [hidden]="precio.valid || precio.pristine">
+            <ion-text>El precio es obligatorio</ion-text>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Cantidad De Asientos Disponibles</ion-label>
+          <ion-input type="text" [(ngModel)]="newVehiculo.cantidadPasajeros" #cantidadPasajeros="ngModel" required
+            placeholder="Ingrese la cantidad de asientos disponibles">
+          </ion-input>
+          <div class="alert alert-danger " [hidden]="cantidadPasajeros.valid || cantidadPasajeros.pristine">
+            <ion-text>La cantidad de pasajeros es obligatoria</ion-text>
+          </div>
+        </ion-item>
+  
+        <ion-item class="">
+          <ion-label position="floating">Foto Vehiculo</ion-label>
+          <ion-input type="file" [(ngModel)]="newVehiculo.foto" #foto="ngModel" required (change)="onFileSelected($event)"
+            placeholder="Ingrese una foto de su vehiculo">
+          </ion-input>
+          <div class="alert alert-danger " [hidden]="foto.valid || foto.pristine">
+            <ion-text>La foto es obligatoria</ion-text>
+          </div>
+        </ion-item>
+  
+        <ion-button expand="full" class="border border-dark mb-2 mt-4" (click)="modificarDatosVehiculo()"
+          [disabled]="block!=(patente.valid && modelo.valid && color.valid && marca.valid && cantidadPasajeros.valid && foto.valid && precio.valid)">
+          Modificar Vehiculo
+        </ion-button>
+        <ion-button expand="full" class="border border-dark" routerLink="/inicio">
+          Cancelar
+        </ion-button>
+      </div>
+    </div>
+  </ng-template>
+  
+</ion-content>

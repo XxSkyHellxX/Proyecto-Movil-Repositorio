@@ -1,0 +1,95 @@
+<ion-content [fullscreen]="true">
+  <div *ngFor="let user of usuario">
+    <ion-menu contentId="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title slot="end" style="color: black;"> TeLlevoApp</ion-title>
+          <ion-img style="width: 50px;height: 50px;" src="assets/icon/caballo.png" slot="start" class="ms-3"></ion-img>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list class="rounded mt-5">
+          <ion-item *ngFor="let menu of componentes">
+            <ion-button class="my-3" shape="round" size="default" routerLink="{{menu.redirecTo}}">
+              <ion-icon class="me-3 mb-1" name="{{menu.icon}}"></ion-icon> {{menu.name}}
+            </ion-button>
+          </ion-item>
+  
+          <div >
+            <div *ngIf="user.vehiculo=='Si' else Pasajero">
+              <ion-item >
+                <ion-button class="my-3" shape="round" size="default" routerLink="/vehiculo">
+                  <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Mi Vehiculo
+                </ion-button>
+              </ion-item>
+            </div>
+          </div>
+  
+          <ng-template #Pasajero>
+            <ion-item >
+              <ion-button class="my-3" shape="round" size="default" routerLink="/buscar-vehiculo">
+                <ion-icon class="me-3 mb-1" name="car-outline"></ion-icon>Buscar Viaje
+              </ion-button>
+            </ion-item>
+          </ng-template>
+  
+          <ion-item >
+            <ion-button class="my-3" shape="round" size="default" (click)="cerrarSesion()">
+              <ion-icon class="me-3 mb-1" name="arrow-back-outline"></ion-icon>Cerrar Sesion
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <div id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button style="color: black;"></ion-menu-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+   </div>
+
+  <div class="border border-bottom">
+    <ion-title class="mb-3 border-bottom">
+      <h1>Ayuda Para El Usuario</h1>
+    </ion-title>
+    <ion-text>
+      <ion-title class="mb-4 h2">Modificar Datos Personales</ion-title>
+
+      <p class="h5">Modificar los datos personales en TeLlevoApp presenta tanto ventajas como desventajas. Entre los
+        beneficios, destaca la posibilidad de mantener actualizada tu información, lo cual es crucial para recibir
+        notificaciones pertinentes y asegurar que los conductores tengan datos correctos sobre ti. <br><br> Además, la
+        actualización mejora la seguridad de tu cuenta, especialmente si has cambiado tu número de teléfono o
+        contraseña.
+        <br>
+        <br>
+        Si desea finalmente modificar sus datos personales haga click en el boton. <br><br>
+        <ion-button (click)="navModifcarDatos()">Modificar Datos</ion-button>
+      </p>
+    </ion-text>
+  </div>
+
+  <div>
+    <ion-text>
+      <ion-title class="mb-4 mt-3 h2">Eliminar Cuenta</ion-title>
+
+      <p class="h5">
+        Eliminar tu cuenta en TeLlevoApp puede ser una decisión significativa con sus propias consideraciones. Entre los
+        beneficios se encuentra la posibilidad de salvaguardar tu privacidad al eliminar la información asociada a tu
+        perfil. <br><br> Además, al no tener una cuenta activa, reduces la exposición de tus datos personales en la plataforma.
+        Esto puede ser particularmente relevante si decides no utilizar más el servicio. Asimismo, la eliminación de la
+        cuenta puede proporcionar un sentido de cierre si ya no planeas utilizar la aplicación.
+        <br><br>
+
+        Si desea finalmente no seguir haciendo uso del servicio y eliminar su cuenta haga click en el boton de abajo. <br><br>
+        <ion-button (click)="mostrarConfirmacion()">Eliminar Cuenta</ion-button>
+      </p>
+    </ion-text>
+  </div>
+
+
+
+</ion-content>
