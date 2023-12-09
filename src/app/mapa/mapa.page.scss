@@ -20,7 +20,26 @@ ion-button {
     font-family: 'Italiana', serif;
     text-shadow: 0px 0px 1px white;
     font-weight: bolder;
+    color: white;
+    display: flex;
+    align-items: center; /* Alinea el contenido verticalmente */
+    justify-content: center; /* Alinea el contenido horizontalmente */
+    padding: 10px 10px; /* Ajusta el relleno según sea necesario */
+    border-radius: 8px; /* Añade bordes redondeados */
+    transition: background 0.3s ease; /* Añade una transición suave al cambio de fondo */
+  
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+
+ion-tab-button:hover{
+    --background: white;
+    color: black;
 }
+
 
 p {
     color: black;

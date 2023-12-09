@@ -69,14 +69,14 @@
                 Marca: {{i.marca}} <br>
                 Modelo: {{i.modelo}} <br>
                 Color: {{i.color}} <br>
+                Asientos Disponibles: {{i.asientosDisponibles}} <br>
                 Precio Del Viaje: {{i.precio}}
               </h3>
             </ion-text>
             <ion-img class="mt-4" src="{{i.foto}}"></ion-img>
 
-            <ion-button class="mt-3" (click)="tomarViaje(i.patente,i.asientosDisponibles)"
-              [disabled]="i.asientosDisponibles==0">Tomar Viaje</ion-button>
-            <ion-button class="mt-3" (click)="verRuta(i.patente)" [disabled]="i.asientosDisponibles==0">Ver
+            <ion-button class="mt-3" (click)="tomarViaje(i.patente,i.asientosDisponibles)" [disabled]="user.SeleccionViaje=='Si'">Tomar Viaje</ion-button>
+            <ion-button class="mt-3" (click)="verRuta(i.patente)">Ver
               Ruta</ion-button>
           </ion-card-content>
         </ion-card>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppRoutingModule } from '../app-routing.module';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { NavController } from '@ionic/angular';
-import { vehiculo } from '../servicio/services-datos.service';
+import { AlertController, NavController } from '@ionic/angular';
+import { ServicesDatosService, vehiculo } from '../servicio/services-datos.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { take } from 'rxjs/operators';
 @Component({
@@ -12,7 +12,7 @@ import { take } from 'rxjs/operators';
 })
 export class BuscarVehiculoPage implements OnInit {
 
-  constructor(private rutas: AppRoutingModule, private afAuth: AngularFireAuth, private navCtrl: NavController, private firestore: AngularFirestore) { }
+  constructor(private rutas: AppRoutingModule, private afAuth: AngularFireAuth, private navCtrl: NavController, private firestore: AngularFirestore, private storageService: ServicesDatosService) { }
 
   componentes = this.rutas.componentes
   usuario = this.rutas.usuarioFireBase
@@ -21,7 +21,7 @@ export class BuscarVehiculoPage implements OnInit {
   nuevosDatos: any = {}
   pasajerosActuales: any = [];
   uidConductor: any;
-
+  uid: any = this.rutas.uid
   patente: any;
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class BuscarVehiculoPage implements OnInit {
   }
 
 
-  async tomarViaje(patente: any,asientoDisponible:any) {
+  async tomarViaje(patente: any, asientoDisponible: any) {
     try {
       // Verificar si uid es un valor válido antes de proceder
       const coleccion = await this.firestore.collection('vehiculo', ref => ref.where('patente', '==', patente));
@@ -50,17 +50,21 @@ export class BuscarVehiculoPage implements OnInit {
           this.pasajerosActuales = data['listaDePasajeros']
 
           for (let i = 0; i < this.usuario.length; i++) {
-            let elemento = this.usuario[i]
-
-            this.pasajerosActuales.push({ nombre: elemento['nombre']+" "+elemento['apellido'],contacto:elemento['celular'] })
-
-            console.log(this.pasajerosActuales)
+            let elemento = this.usuario[i];
+            let nuevoPasajero = { nombre: elemento['nombre'] + " " + elemento['apellido'], contacto: elemento['celular'] };
+          
+            console.log("Nuevo pasajero:", nuevoPasajero);
+          
+            // Verificar si el pasajero ya está en la lista antes de agregarlo
+            if (!this.pasajerosActuales.some((pasajero: { contacto: any; }) => pasajero.contacto === nuevoPasajero.contacto)) {
+              this.pasajerosActuales.push(nuevoPasajero);
+            }
           }
 
 
           this.nuevosDatos = {
-            asientosDisponibles:asientoDisponible-1,
-            listaDePasajeros: this.pasajerosActuales
+            asientosDisponibles: asientoDisponible - 1,
+            listaDePasajeros: this.pasajerosActuales,
           };
 
 
@@ -68,7 +72,8 @@ export class BuscarVehiculoPage implements OnInit {
 
         });
 
-        this.navCtrl.navigateRoot('Inicio')
+        this.verRuta(patente);
+        this.Viaje();
       } else {
         console.error('UID no válido o indefinido.');
       }
@@ -78,7 +83,7 @@ export class BuscarVehiculoPage implements OnInit {
     }
   }
 
-  async verRuta(patente: any){
+  async verRuta(patente: any) {
     try {
       // Verificar si uid es un valor válido antes de proceder
       const coleccion = await this.firestore.collection('vehiculo', ref => ref.where('patente', '==', patente));
@@ -95,7 +100,7 @@ export class BuscarVehiculoPage implements OnInit {
         const coleccionVehiculo = this.firestore.collection('vehiculo').doc(this.uidConductor).valueChanges();
 
         coleccionVehiculo.pipe(take(1)).subscribe(async (data: any) => {
-          this.rutas.destinoConductor=data['destino']
+          this.rutas.destinoConductor = data['destino']
           this.navCtrl.navigateRoot('/mapa')
         });
 
@@ -108,7 +113,28 @@ export class BuscarVehiculoPage implements OnInit {
     }
   }
 
+  async Viaje() {
+    try {
+      // Obtener la ubicación una vez al principio
+      await this.storageService.getGeoLocation();
 
+      // Verificar si uid es un valor válido antes de proceder
+      if (this.uid !== null && this.uid !== undefined) {
+        this.nuevosDatos = {
+          SeleccionViaje: "Si"
+        };
+
+        // Actualizar datos en Firestore
+        await this.firestore.collection("usuarios").doc(this.uid).update(this.nuevosDatos);
+
+
+      } else {
+        console.error('UID no válido o indefinido.');
+      }
+    } catch (error) {
+      console.error('Error al modificar datos:', error);
+    }
+  }
 
   cerrarSesion() {
     this.afAuth.signOut()
