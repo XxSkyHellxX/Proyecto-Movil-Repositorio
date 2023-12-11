@@ -51,7 +51,7 @@ export class BuscarVehiculoPage implements OnInit {
 
           for (let i = 0; i < this.usuario.length; i++) {
             let elemento = this.usuario[i];
-            let nuevoPasajero = { nombre: elemento['nombre'] + " " + elemento['apellido'], contacto: elemento['celular'] };
+            let nuevoPasajero = { nombre: elemento['nombre'] + " " + elemento['apellido'], contacto: elemento['celular'], rut: elemento['rut'] };
           
             console.log("Nuevo pasajero:", nuevoPasajero);
           

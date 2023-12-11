@@ -30,7 +30,7 @@ export class MapaPage implements OnInit {
   ngOnInit() {
     this.loadMap(this.latitud,this.longitud)
 
-
+    console.log(this.usuario)
   }
 
   //, 

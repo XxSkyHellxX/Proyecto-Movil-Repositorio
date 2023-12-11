@@ -82,32 +82,26 @@
         </ion-card>
       </div>
     </div>
+
   </div>
 
   <ng-template #conductor>
     <div *ngFor="let i of usuarioVehiculo">
       <ion-card class="mt-4 pb-3" class="text-center">
-        <ion-card-header>
-          <ion-title>
-            <h1>Patente {{i.patente}}</h1>
-          </ion-title>
-        </ion-card-header>
-
         <ion-card-content>
-          <ion-text>
-            <h3>
-              Marca: {{i.marca}} <br>
-              Modelo: {{i.modelo}} <br>
-              Color: {{i.color}} <br>
-            </h3>
-          </ion-text>
-          <ion-img class="mt-4" src="{{i.foto}}"></ion-img>
+          <h1 class="mt-2">Lista De Pasajeros</h1>
 
           <ion-text *ngFor="let Pasajero of i.listaDePasajeros" class="mt-3 mb-2">
-            <h1>Lista De Pasajeros</h1>
-            <h3>{{Pasajero.nombre}}</h3>
-            <h3>Contacto:  {{Pasajero.contacto}}</h3>
-            <hr>
+            <div *ngIf="Pasajero != 0 else Vacio">
+              <h3>{{Pasajero.nombre}}</h3>
+              <h3>Contacto:  {{Pasajero.contacto}}</h3>
+              <h3>RUT: {{Pasajero.rut}}</h3>
+              <hr>
+            </div>
+            <ng-template #Vacio>
+              <h3>No Hay Pasajeros</h3>
+            </ng-template>
+            <ion-button>Terminar Viaje</ion-button>
           </ion-text>
         </ion-card-content>
       </ion-card>
